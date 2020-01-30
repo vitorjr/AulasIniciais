@@ -37,6 +37,7 @@ namespace Empresa.Entities
 
         public Double Income(int ano, int mes)
         {
+            double sum = baseSalary;
 
         }
     }
