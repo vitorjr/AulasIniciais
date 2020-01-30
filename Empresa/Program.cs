@@ -8,7 +8,10 @@ namespace Empresa
     {
         static void Main(string[] args)
         {
-            Console.Write("Digite quantos funcionários serão inseridos? "); 
+            DateTime x = DateTime.Now;
+            Console.WriteLine(x);
+            
+            /* Console.Write("Digite quantos funcionários serão inseridos? "); 
             int n = int.Parse(Console.ReadLine());
 
             List<Employee> lista = new List<Employee>();
@@ -49,7 +52,7 @@ namespace Empresa
             foreach (Employee obj in lista)
             {
                 Console.WriteLine(obj);
-            }
+            }*/
         }
     }
 }
