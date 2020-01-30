@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Empresa.Entities;
+using Empresa.Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -8,8 +10,17 @@ namespace Empresa
     {
         static void Main(string[] args)
         {
-            DateTime x = DateTime.Now;
-            Console.WriteLine(x);
+            Order order = new Order
+            {
+                Id = 10,
+                Moment = DateTime.Now,
+                Status = OrderStatus.PendingPayment
+            };
+
+            Console.WriteLine(order);
+            
+            /*DateTime x = DateTime.Now;
+            Console.WriteLine(x);*/
             
             /* Console.Write("Digite quantos funcionários serão inseridos? "); 
             int n = int.Parse(Console.ReadLine());
