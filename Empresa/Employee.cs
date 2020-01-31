@@ -10,6 +10,8 @@ namespace Empresa
         public string Name { get; set; }
         public double Salary { get; set; }
 
+        public Employee() { }
+
         public Employee(int id, string name, double salary)
         {
             Id = id;
