@@ -38,7 +38,14 @@ namespace Empresa.Entities
         public Double Income(int ano, int mes)
         {
             double sum = baseSalary;
-
+            foreach(HourContract contract in Contracts)
+            {
+                if(contract.Date.Year == ano && contract.Date.Month == mes)
+                {
+                    sum = sum + contract.TotalValue();
+                }
+            }
+            return sum;
         }
     }
 }

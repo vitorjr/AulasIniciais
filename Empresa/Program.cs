@@ -10,18 +10,67 @@ namespace Empresa
     {
         static void Main(string[] args)
         {
-            Order order = new Order
+            string depName, nameWorker;
+            double basesalarial;
+            WorkerLevel nivel = new WorkerLevel();
+            
+            Console.WriteLine("Entre com o nome do departamento: ");
+            depName = Console.ReadLine();
+            Console.WriteLine("Entre com uma data do funcionario:");
+            Console.WriteLine("Nome: ");
+            nameWorker = Console.ReadLine();
+            Console.WriteLine("Informe o nível (Junior/MidLever/Senior): ");
+            nivel = Enum.Parse<WorkerLevel>(Console.ReadLine());
+            Console.WriteLine("Informe a base salarial:");
+            basesalarial = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            
+
+            Department departamento = new Department(depName);
+            Worker funcionario = new Worker(nameWorker,basesalarial,nivel, departamento);
+            
+
+            Console.WriteLine("Informe quantos contratos adicionais o funcionário fez: ");
+            int n = int.Parse(Console.ReadLine());
+
+            for(int i=1; i<=n; i++)
+            {
+                Console.WriteLine("Entre com o contrato #"+i);
+                Console.WriteLine("Data:");
+                DateTime date = DateTime.Parse(Console.ReadLine());
+                Console.WriteLine("Valor por hora: ");
+                Double valorPorhora = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Console.WriteLine("Duração(Horas): ");
+                int horas = int.Parse(Console.ReadLine());
+
+                HourContract horasfuncionario = new HourContract(date, valorPorhora, horas);
+                funcionario.AddContract(horasfuncionario);
+            }
+
+
+            Console.Write("Entre com o mes e o ano para calcular o aumento salarial(MM/YYYY): ");
+            string mesAno = Console.ReadLine();
+            int mes = int.Parse(mesAno.Substring(0, 2));
+            int ano = int.Parse(mesAno.Substring(3));
+            Console.WriteLine("Name : " + funcionario.Name);
+            Console.WriteLine("Department: " + funcionario.department.Name);
+            Console.WriteLine("Income for " + mesAno + ": " + funcionario.Income(ano, mes).ToString("F2", CultureInfo.InvariantCulture));
+
+
+
+
+
+            /*Order order = new Order
             {
                 Id = 10,
                 Moment = DateTime.Now,
                 Status = OrderStatus.PendingPayment
             };
 
-            Console.WriteLine(order);
-            
+            Console.WriteLine(order);*/
+
             /*DateTime x = DateTime.Now;
             Console.WriteLine(x);*/
-            
+
             /* Console.Write("Digite quantos funcionários serão inseridos? "); 
             int n = int.Parse(Console.ReadLine());
 
