@@ -10,7 +10,13 @@ namespace Empresa
     {
         static void Main(string[] args)
         {
-            string depName, nameWorker;
+            Account acc = new Account(121, "Joao", 0.00);
+            BusinessAccount baccount = new BusinessAccount(122, "Maria", 0.00, 1000.00);
+           
+
+
+            /*Projeto Worker(funcionarios)
+             * string depName, nameWorker;
             double basesalarial;
             WorkerLevel nivel = new WorkerLevel();
             
@@ -54,10 +60,7 @@ namespace Empresa
             Console.WriteLine("Name : " + funcionario.Name);
             Console.WriteLine("Department: " + funcionario.department.Name);
             Console.WriteLine("Income for " + mesAno + ": " + funcionario.Income(ano, mes).ToString("F2", CultureInfo.InvariantCulture));
-
-
-
-
+            */
 
             /*Order order = new Order
             {
