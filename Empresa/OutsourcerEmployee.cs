@@ -13,6 +13,17 @@ namespace Empresa
             AdditionalCharge = additionalCharge;
         }
 
+        public OutsourcerEmployee(string name, int hours, double valueporhours, double additionalCharge) : base(name, hours, valueporhours)
+        {
+            AdditionalCharge = additionalCharge;
+        }
+
         public OutsourcerEmployee() { }
+
+        public override double Payment()
+        {
+            Double adicional = AdditionalCharge * 1.1;
+            return base.Payment() + adicional;
+        }
     }
 }
