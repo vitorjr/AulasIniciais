@@ -13,6 +13,25 @@ namespace Empresa
             /*Account acc = new Account(121, "Joao", 0.00);
             BusinessAccount baccount = new BusinessAccount(122, "Maria", 0.00, 1000.00);*/
 
+            Console.WriteLine("Room number");
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Check-in date (dd/MM/yyyy):");
+            DateTime dataentrada = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine("Check-out date (dd/MM/yyyy):");
+            DateTime datasaida = DateTime.Parse(Console.ReadLine());
+
+            Reservation reserva = new Reservation(number, dataentrada, datasaida);
+
+            for (int i = 1; i <= number; i++)
+            {
+
+            }
+
+
+            /*
+            //Projeto Area da figura
             Console.Write("Digite quantas figuras serão inseridas? ");
             int n = int.Parse(Console.ReadLine());
 
@@ -49,7 +68,7 @@ namespace Empresa
             {
                 Console.WriteLine(shape.Area().ToString("F2",CultureInfo.InvariantCulture));
             }
-
+            */
 
 
             /*
