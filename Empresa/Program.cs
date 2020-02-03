@@ -10,9 +10,48 @@ namespace Empresa
     {
         static void Main(string[] args)
         {
-            Account acc = new Account(121, "Joao", 0.00);
-            BusinessAccount baccount = new BusinessAccount(122, "Maria", 0.00, 1000.00);
-           
+            /*Account acc = new Account(121, "Joao", 0.00);
+            BusinessAccount baccount = new BusinessAccount(122, "Maria", 0.00, 1000.00);*/
+
+            
+            //Projeto de funcionario terceirizados adicionando uma despesa adicional
+            Console.Write("Digite quantos funcionários serão inseridos? "); 
+            int n = int.Parse(Console.ReadLine());
+
+            List<Employee> lista = new List<Employee>();
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine(); 
+                Console.WriteLine($"Funcionario #{i}:");
+                Console.Write("Terceirizado (y/n): "); 
+                char terceirizado = char.Parse(Console.ReadLine()); 
+                Console.Write("Nome: "); 
+                string nome = Console.ReadLine(); 
+                Console.Write("Horas: ");
+                int horas = int.Parse(Console.ReadLine());
+                Console.Write("Valor por hora: ");
+                double valorporhora = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                if(terceirizado == 'y')
+                {
+
+                    Console.Write("Despesa adicional:");
+                    double adicional = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    lista.Add(new OutsourcerEmployee(nome, horas, valorporhora, adicional));
+
+                }
+                else { lista.Add(new Employee(nome, horas, valorporhora));  }
+                
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Payments:");
+            foreach (Employee empe in lista)
+            {
+                Console.WriteLine($"{empe.Name} - {empe.Payment().ToString("F2", CultureInfo.InvariantCulture)}");
+            }
+            
+
 
 
             /*Projeto Worker(funcionarios)
