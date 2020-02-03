@@ -13,7 +13,46 @@ namespace Empresa
             /*Account acc = new Account(121, "Joao", 0.00);
             BusinessAccount baccount = new BusinessAccount(122, "Maria", 0.00, 1000.00);*/
 
-            
+            Console.Write("Digite quantas figuras serão inseridas? ");
+            int n = int.Parse(Console.ReadLine());
+
+            List<Shape> lista = new List<Shape>();
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Figura #{i}:");
+                Console.Write("Retangulo ou Circulo (r/c): ");
+                char terceirizado = char.Parse(Console.ReadLine());
+                Console.Write("Cor (Black/Blue/Red): ");
+                Color color = Enum.Parse<Color>(Console.ReadLine());
+                if (terceirizado == 'r')
+                {
+
+                    Console.Write("Largura:");
+                    double largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    Console.Write("Altura:");
+                    double altura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    lista.Add(new Rectangle(altura,largura,color));
+
+                }
+                else {
+                    Console.Write("Informe o raio do circulo:");
+                    double raio = Double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    lista.Add(new Circle(raio, color)); 
+                }
+
+                Console.WriteLine();
+            }
+            Console.WriteLine("Payments:");
+            foreach (Shape shape in lista)
+            {
+                Console.WriteLine(shape.Area().ToString("F2",CultureInfo.InvariantCulture));
+            }
+
+
+
+            /*
             //Projeto de funcionario terceirizados adicionando uma despesa adicional
             Console.Write("Digite quantos funcionários serão inseridos? "); 
             int n = int.Parse(Console.ReadLine());
@@ -51,7 +90,7 @@ namespace Empresa
                 Console.WriteLine($"{empe.Name} - {empe.Payment().ToString("F2", CultureInfo.InvariantCulture)}");
             }
             
-
+            */
 
 
             /*Projeto Worker(funcionarios)
