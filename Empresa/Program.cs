@@ -1,5 +1,6 @@
 ﻿using Empresa.Entities;
 using Empresa.Entities.Enums;
+using Empresa.Entities.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,7 +13,7 @@ namespace Empresa
         {
             /*Account acc = new Account(121, "Joao", 0.00);
             BusinessAccount baccount = new BusinessAccount(122, "Maria", 0.00, 1000.00);*/
-
+            try { 
             Console.WriteLine("Room number");
             int number = int.Parse(Console.ReadLine());
 
@@ -23,10 +24,29 @@ namespace Empresa
             DateTime datasaida = DateTime.Parse(Console.ReadLine());
 
             Reservation reserva = new Reservation(number, dataentrada, datasaida);
+            Console.WriteLine("Reservation:"+reserva);
 
-            for (int i = 1; i <= number; i++)
+            Console.WriteLine();
+            Console.WriteLine("Enter data to update the reservation:");
+            Console.Write("Check-in date (dd/MM/yyyy): ");
+            dataentrada = DateTime.Parse(Console.ReadLine());
+            Console.Write("Check-out date (dd/MM/yyyy): ");
+            datasaida = DateTime.Parse(Console.ReadLine());
+
+            reserva.UpdateDates(dataentrada, datasaida);
+            Console.WriteLine("Reservation: " + reserva);
+            }
+            catch (FormatException e)
             {
-
+                Console.WriteLine("Error in format: " + e.Message);
+            }
+            catch (DomainException e)
+            {
+                Console.WriteLine("Error in reservation: " + e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Unexpected error: " + e.Message);
             }
 
 
