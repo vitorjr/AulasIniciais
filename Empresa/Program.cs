@@ -12,7 +12,31 @@ namespace Empresa
     {
         static void Main(string[] args)
         {
-            string origem = @"C:\FitBank\texto1.txt";
+            string origem = @"C:\FitBank\myfolder";
+            try
+            {
+                //string[] lines = File.ReadAllLines(origem);
+                IEnumerable<string> folders = Directory.EnumerateDirectories(origem, "*.*", SearchOption.AllDirectories);
+                foreach(string s in folders)
+                {
+                    Console.WriteLine(s);
+                }
+
+                IEnumerable<string> files = Directory.EnumerateFiles(origem, "*.*", SearchOption.AllDirectories);
+                Console.WriteLine();
+                foreach (string s in files)
+                {
+                    Console.WriteLine(s);
+                }
+                Directory.CreateDirectory(origem + "\\newfolder");
+
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("An error ocurred");
+                Console.WriteLine(e.Message);
+            }
+            /*string origem = @"C:\FitBank\texto1.txt";
             string destino = @"C:\FitBank\texto2.txt";
             try
             {
@@ -29,7 +53,7 @@ namespace Empresa
             {
                 Console.WriteLine("An error ocurred");
                 Console.WriteLine(e.Message);
-            }
+            }*/
             /* string sourcePath = @"C:\FitBank\texto1.txt";
             
                 using(StreamReader sr = File.OpenText(sourcePath))
