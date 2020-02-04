@@ -4,6 +4,7 @@ using Empresa.Entities.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 
 namespace Empresa
 {
@@ -11,8 +12,100 @@ namespace Empresa
     {
         static void Main(string[] args)
         {
+            string origem = @"C:\FitBank\texto1.txt";
+            string destino = @"C:\FitBank\texto2.txt";
+            try
+            {
+                string[] lines = File.ReadAllLines(origem);
+                using(StreamWriter sw = File.AppendText(destino))
+                {
+                    foreach(string line in lines)
+                    {
+                        sw.WriteLine(line.ToUpper());
+                    }
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("An error ocurred");
+                Console.WriteLine(e.Message);
+            }
+            /* string sourcePath = @"C:\FitBank\texto1.txt";
+            
+                using(StreamReader sr = File.OpenText(sourcePath))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        Console.WriteLine(line);
+                    }
+                }*/
+            /*string sourcePath = @"C:\FitBank\texto1.txt";
+            FileStream fs = null;
+            StreamReader sr = null;
+            try
+            {
+                sr = File.OpenText(sourcePath);
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    Console.WriteLine(line);
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("An error ocurred");
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (sr != null) sr.Close();
+                if (fs != null) fs.Close();
+            }*/
+            /*
+            string sourcePath = @"C:\FitBank\texto1.txt";
+            FileStream fs = null;
+            StreamReader sr = null;
+            try
+            {
+                fs = new FileStream(sourcePath, FileMode.Open);
+                sr = new StreamReader(fs);
+                string line = sr.ReadLine();
+                Console.WriteLine(line);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("An error ocurred");
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (sr != null) sr.Close();
+                if (fs != null) fs.Close();
+            }*/
+            /*
+            string sourcePath = @"C:\FitBank\texto1.txt";
+            string targetPath = @"C:\FitBank\texto2.txt";
+            try
+            {
+                FileInfo file = new FileInfo(sourcePath);
+                //file.CopyTo(targetPath);
+                string[] lines = File.ReadAllLines(sourcePath);
+                foreach(string line in lines)
+                {
+                    Console.WriteLine(line);
+                }
+            }catch(IOException e)
+            {
+                Console.WriteLine("An error ocurred");
+                Console.WriteLine(e.Message);
+            }
+            */
+
             /*Account acc = new Account(121, "Joao", 0.00);
             BusinessAccount baccount = new BusinessAccount(122, "Maria", 0.00, 1000.00);*/
+            /*
+            //Projeto com criações de try cath
             try { 
             Console.WriteLine("Room number");
             int number = int.Parse(Console.ReadLine());
@@ -48,7 +141,7 @@ namespace Empresa
             {
                 Console.WriteLine("Unexpected error: " + e.Message);
             }
-
+            */
 
             /*
             //Projeto Area da figura

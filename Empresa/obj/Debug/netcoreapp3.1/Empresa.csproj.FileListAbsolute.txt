@@ -9,3 +9,14 @@ C:\Users\Fitbank\Documents\Aulas Iniciais\Empresa\Empresa\obj\Debug\netcoreapp3.
 C:\Users\Fitbank\Documents\Aulas Iniciais\Empresa\Empresa\obj\Debug\netcoreapp3.1\Empresa.AssemblyInfo.cs
 C:\Users\Fitbank\Documents\Aulas Iniciais\Empresa\Empresa\obj\Debug\netcoreapp3.1\Empresa.dll
 C:\Users\Fitbank\Documents\Aulas Iniciais\Empresa\Empresa\obj\Debug\netcoreapp3.1\Empresa.pdb
+C:\FitBank\AulasIniciais\Empresa\bin\Debug\netcoreapp3.1\Empresa.exe
+C:\FitBank\AulasIniciais\Empresa\bin\Debug\netcoreapp3.1\Empresa.deps.json
+C:\FitBank\AulasIniciais\Empresa\bin\Debug\netcoreapp3.1\Empresa.runtimeconfig.json
+C:\FitBank\AulasIniciais\Empresa\bin\Debug\netcoreapp3.1\Empresa.runtimeconfig.dev.json
+C:\FitBank\AulasIniciais\Empresa\bin\Debug\netcoreapp3.1\Empresa.dll
+C:\FitBank\AulasIniciais\Empresa\bin\Debug\netcoreapp3.1\Empresa.pdb
+C:\FitBank\AulasIniciais\Empresa\obj\Debug\netcoreapp3.1\Empresa.csprojAssemblyReference.cache
+C:\FitBank\AulasIniciais\Empresa\obj\Debug\netcoreapp3.1\Empresa.AssemblyInfoInputs.cache
+C:\FitBank\AulasIniciais\Empresa\obj\Debug\netcoreapp3.1\Empresa.AssemblyInfo.cs
+C:\FitBank\AulasIniciais\Empresa\obj\Debug\netcoreapp3.1\Empresa.dll
+C:\FitBank\AulasIniciais\Empresa\obj\Debug\netcoreapp3.1\Empresa.pdb
