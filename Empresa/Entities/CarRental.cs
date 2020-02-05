@@ -20,5 +20,6 @@ namespace Empresa.Entities
             Finish = finish;
             Vehicle = vehicle;
         }
+
     }
 }
