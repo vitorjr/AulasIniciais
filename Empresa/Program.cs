@@ -12,7 +12,16 @@ namespace Empresa
     {
         static void Main(string[] args)
         {
-            string origem = @"C:\FitBank\myfolder";
+            Console.WriteLine("Enter retal data: ");
+            Console.WriteLine("Car model:");
+            string model = Console.ReadLine();
+            Console.WriteLine("Pickup (dd/MM/yyyy hh:mm): ");
+            DateTime start = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+            Console.WriteLine("Return (dd/MM/yyyy hh:mm): ");
+            DateTime finish = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+
+            //Projeto de arquivos criados
+            /* string origem = @"C:\FitBank\myfolder";
             try
             {
                 //string[] lines = File.ReadAllLines(origem);
@@ -35,7 +44,7 @@ namespace Empresa
             {
                 Console.WriteLine("An error ocurred");
                 Console.WriteLine(e.Message);
-            }
+            }*/
             /*string origem = @"C:\FitBank\texto1.txt";
             string destino = @"C:\FitBank\texto2.txt";
             try
