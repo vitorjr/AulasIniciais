@@ -16,68 +16,80 @@ namespace Empresa
     {
         //delegate double BinaryNumericOperation(double n1, double n2);
 
-        delegate void BinaryNumericOperation(double n1, double n2);
+        //delegate void BinaryNumericOperation(double n1, double n2);
+
+        static void Print<T>(string message, IEnumerable<T> collection)
+        {
+            Console.WriteLine(message);
+            foreach(T obj in collection)
+            {
+                Console.WriteLine(obj);
+            }
+            Console.WriteLine( );
+        }
+
         static void Main(string[] args)
         {
-            Category c1 = new Category() { Id = 1, Name = "Tools", Tier = 2 };
-            Category c2 = new Category() { Id = 2, Name = "Computers", Tier = 1 };
-            Category c3 = new Category() { Id = 3, Name = "Electronics", Tier = 1 };
+            Console.WriteLine("Entre com o caminho do arquivo: ");
+            string caminho = Console.ReadLine();
 
-            List<Product> products = new List<Product>() { 
-                new Product() {Id = 1, Name = "Computer", Price = 1100.0, Category = c2},
-                new Product() { Id = 2, Name = "Hammer", Price = 90.0, Category = c1 },
-                new Product() { Id = 3, Name = "TV", Price = 1700.0, Category = c3 },
-                new Product() { Id = 4, Name = "Notebook", Price = 1300.0, Category = c2 },
-                new Product() { Id = 5, Name = "Saw", Price = 80.0, Category = c1 },
-                new Product() { Id = 6, Name = "Tablet", Price = 700.0, Category = c2 },
-                new Product() { Id = 7, Name = "Camera", Price = 700.0, Category = c3 },
-                new Product() { Id = 8, Name = "Printer", Price = 350.0, Category = c3 },
-                new Product() { Id = 9, Name = "MacBook", Price = 1800.0, Category = c2 },
-                new Product() { Id = 10, Name = "Sound Bar", Price = 700.0, Category = c3 },
-                new Product() { Id = 11, Name = "Level", Price = 70.0, Category = c1 }
-            };
+            List<EmployeeFile> list = new List<EmployeeFile>();
 
-            var r1 = products.Where(p => p.Category.Id == 1 && p.Price < 900.0);
-            Console.WriteLine("Tier 1 and Price < 900: ");
-            /*
-            int[] numbers = new int[] { 2, 3, 4, 5 };
-
-            var result = numbers.Where(x => x % 2 == 0).Select(x => x * 10);
-
-            foreach(int x in result)
+            using (StreamReader sr = File.OpenText(caminho))
             {
-                Console.WriteLine(x);
+                while (!sr.EndOfStream)
+                {
+                    string[] fields = sr.ReadLine().Split(',');
+                    string name = fields[0];
+                    string email = fields[1];
+                    double salary = double.Parse(fields[2], CultureInfo.InvariantCulture);
+                    
+                    list.Add(new EmployeeFile(name,email,salary));
+                }
+            }
+
+            //var avg = list.Select(p => p.Price).DefaultIfEmpty(0.0).Average();
+            //Console.WriteLine("Media dos preços: " + avg.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Informe um salário: ");
+            double sal = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+
+            var emails = list.Where(p => p.Salary > sal).OrderBy(p => p.Email).Select(p => p.Email);
+            foreach (string name in emails)
+            {
+                Console.WriteLine(name);
+            }
+
+            var soma = list.Where(p => p.Name[0] == 'M').Sum(p => p.Salary);
+            Console.WriteLine("Soma dos funcionários iniciando com o a Letra 'M': "+soma.ToString("F2", CultureInfo.InvariantCulture));
+
+
+            /*
+            Console.WriteLine("Entre com o caminho do arquivo: ");
+            string caminho = Console.ReadLine();
+
+            List<ProductFile> list = new List<ProductFile>();
+
+            using(StreamReader sr = File.OpenText(caminho))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string[] fields = sr.ReadLine().Split(',');
+                    string name = fields[0];
+                    double price = double.Parse(fields[1], CultureInfo.InvariantCulture);
+                    list.Add(new ProductFile(name, price));
+                }
+            }
+
+            var avg = list.Select(p => p.Price).DefaultIfEmpty(0.0).Average();
+            Console.WriteLine("Media dos preços: "+avg.ToString("F2",CultureInfo.InvariantCulture));
+
+            var names = list.Where(p => p.Price < avg).OrderByDescending(p => p.Name).Select(p => p.Name);
+            foreach(string name in names)
+            {
+                Console.WriteLine(name);
             }*/
-
-
-
             /*
-             * Funções utilizadas em Predicate,Func, Action(Remove, Update, Touper)
-            List<Product> list = new List<Product>();
-            list.Add(new Product("Tv", 900.00)); 
-            list.Add(new Product("Mouse", 50.00)); 
-            list.Add(new Product("Tablet", 350.50)); 
-            list.Add(new Product("HD Case", 80.90));
-
-            list.ForEach(AtualizarPreco );
-
-            List<string> result = list.Select(NameUpper).ToList();
-
-            foreach(string s in result)
-            {
-                Console.WriteLine(s);
-            }
-
-            list.RemoveAll(TesteProduto);
-            foreach(Product p in list)
-            {
-                Console.WriteLine(p.ToString());
-            }
-
-            */
-
-
-
             String s1 = "Good morning dear students!";
 
             double a = 10;
@@ -87,7 +99,7 @@ namespace Empresa
             op += CalculationService.ShowMax;
 
             op.Invoke(a, b);
-
+            */
 
             /*
             double a = 10;
